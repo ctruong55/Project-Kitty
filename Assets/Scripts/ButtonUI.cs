@@ -19,6 +19,10 @@ public class ButtonUI : MonoBehaviour
     }
 
     public void Play() {
-        SceneManager.LoadScene("Game");    
+        SceneManager.LoadScene("Mouse");
+    }
+
+    public void Retry() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
