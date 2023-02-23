@@ -9,6 +9,7 @@ public class health : MonoBehaviour
     public Camera cam;
     public GameObject Manager;
     public GameObject boom;
+    public GameObject End;
     public Image healthBarimg;
     public bool isHurt;
     public float HP;
@@ -16,6 +17,7 @@ public class health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        End.SetActive(false);
         Manager = GameObject.Find("Spawner");
         HP = 1f;
         isHurt = false;
@@ -28,7 +30,8 @@ public class health : MonoBehaviour
             GameObject clone2 = Instantiate(boom, transform.position, Quaternion.identity);
             Destroy(clone2.gameObject, 0.5f);
             clone2.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
-            SceneManager.LoadScene("End");
+            //SceneManager.LoadScene("End");
+            End.SetActive(true);
         }
 
         if (HP <= 0.25f) {
