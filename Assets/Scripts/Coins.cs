@@ -20,5 +20,8 @@ public class Coins : MonoBehaviour
     void Update()
     {
         cointxt.text = "×" + player.GetComponent<movement>().coins.ToString("0");
+        if (!player.GetComponent<health>().alive) {
+            //tranform.position = new Vector2();
+        }
     }
 }
