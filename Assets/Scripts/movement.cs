@@ -26,9 +26,11 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotation();
-        thrust();
-        StaminaFill();
+        if (gameObject.GetComponent<health>().alive) {
+            rotation();
+            thrust();
+            StaminaFill();
+        }
     }
 
 

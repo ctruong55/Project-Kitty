@@ -21,7 +21,7 @@ public class Coins : MonoBehaviour
     {
         cointxt.text = "×" + player.GetComponent<movement>().coins.ToString("0");
         if (!player.GetComponent<health>().alive) {
-            //tranform.position = new Vector2();
+            gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-1156f, -579f);
         }
     }
 }
