@@ -13,7 +13,7 @@ public class movement : MonoBehaviour
     public ParticleSystem dust;
     public Image staminaBarimg;
     private float speed;
-    public float NormalSpeed = 30f;
+    public float NormalSpeed = 200f;
     public float stamina = 10f;
 
     // Start is called before the first frame update
@@ -56,7 +56,7 @@ public class movement : MonoBehaviour
         dust.Play();
         if (stamina > 0f && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
         {
-            speed = 200f;
+            speed = 400f;
             stamina -= (2 * Time.deltaTime);
         }
 
