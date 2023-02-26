@@ -16,6 +16,7 @@ public class Timer : MonoBehaviour
     public float timeLeft;
     public float tempTime;
     public TMP_Text time;
+    public TMP_Text end;
     public Volume volume;
 
     // Start is called before the first frame update
@@ -61,6 +62,7 @@ public class Timer : MonoBehaviour
             if (timeLeft < 1)
             {
                 time.text = "ROUND WON";
+                end.text = "LEVEL PASSED";
                 player.GetComponent<health>().alive = false;
             }
 
