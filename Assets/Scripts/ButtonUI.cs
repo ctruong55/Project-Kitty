@@ -46,6 +46,12 @@ public class ButtonUI : MonoBehaviour
         SceneManager.LoadScene("Title");
     }
 
+    public void Shop()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Shop");
+    }
+
     public void Pause()
     {
         if (player.GetComponent<health>().alive)

@@ -7,7 +7,7 @@ public class movement : MonoBehaviour
 {
     public GameObject Manager;
     public GameObject Fireworks;
-    public float coins = 0;
+    public static float coins = 0;
     public float keys = 0;
     public Rigidbody2D rb2D;
     public ParticleSystem dust;

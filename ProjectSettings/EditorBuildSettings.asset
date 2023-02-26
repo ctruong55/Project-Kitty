@@ -14,15 +14,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 3711fe5e9f3422c4f83ad7c24a3144fb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Cat.unity
     guid: b9ded0be0cba7164faa4c3f7e5803924
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: d946d2868c96e654e9d70f15c9f4f317
   - enabled: 1
     path: Assets/Scenes/Mouse.unity
     guid: 29553f76567ba3e43ab75ee899f02a3a
   - enabled: 0
-    path: Assets/Scenes/End.unity
-    guid: 9e417d36fcc993d46a62e278329245ae
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

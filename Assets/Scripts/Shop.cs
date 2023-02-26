@@ -15,6 +15,7 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coins = movement.coins;
         coinTxt.text = "Coins: " + coins.ToString();
 
         //IDs
@@ -45,6 +46,7 @@ public class Shop : MonoBehaviour
         if (coins >= shopItems[2, buttonRef.GetComponent<ItemInfo>().ItemID]) {
 
             coins -= shopItems[2, buttonRef.GetComponent<ItemInfo>().ItemID];
+            movement.coins -= shopItems[2, buttonRef.GetComponent<ItemInfo>().ItemID];
             shopItems[3, buttonRef.GetComponent<ItemInfo>().ItemID]++;
             coinTxt.text = "Coins: " + coins.ToString();
             buttonRef.GetComponent<ItemInfo>().QuantityTxt.text = shopItems[3, buttonRef.GetComponent<ItemInfo>().ItemID].ToString();
