@@ -13,7 +13,6 @@ public class Timer : MonoBehaviour
     public GameObject Mist;
     public GameObject Lightrays;
     public Light2D spotLight;
-    public bool celebrate;
     public float timeLeft;
     public float tempTime;
     public TMP_Text time;
@@ -27,7 +26,6 @@ public class Timer : MonoBehaviour
         Lightrays.SetActive(true);
         Mist.SetActive(false);
         time = GetComponent<TMP_Text>();
-        celebrate = false;
         tempTime = (timeLeft * 0.75f);
     }
 
@@ -63,7 +61,7 @@ public class Timer : MonoBehaviour
             if (timeLeft < 1)
             {
                 time.text = "ROUND WON";
-                celebrate = true;
+                player.GetComponent<health>().alive = false;
             }
 
             if (cam.orthographicSize >= 10f)

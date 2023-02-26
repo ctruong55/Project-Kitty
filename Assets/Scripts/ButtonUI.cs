@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonUI : MonoBehaviour
 {
-
+    public GameObject player;
     public GameObject options;
 
     // Start is called before the first frame update
@@ -48,8 +48,11 @@ public class ButtonUI : MonoBehaviour
 
     public void Pause()
     {
-        options.SetActive(true);
-        Time.timeScale = 0f;
+        if (player.GetComponent<health>().alive)
+        {
+            options.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 
     public void Resume() {

@@ -32,7 +32,6 @@ public class health : MonoBehaviour
             GameObject clone2 = Instantiate(boom, transform.position, Quaternion.identity);
             Destroy(clone2.gameObject, 0.5f);
             clone2.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
-            SceneManager.LoadScene("End");
             End.SetActive(true);
             alive = false;
         }
