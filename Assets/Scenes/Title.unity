@@ -730,6 +730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22e0d77abbf8fd43a476d4b6b1e479b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  options: {fileID: 0}
 --- !u!1 &712172065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1159,7 @@ MonoBehaviour:
   priority: 1
   blendDistance: 0
   weight: 0.5
-  sharedProfile: {fileID: 11400000, guid: f14ecde278811b447848834dbf5d437d, type: 2}
+  sharedProfile: {fileID: 11400000, guid: d8fa069caf078b146a9986a1c46de5a7, type: 2}
 --- !u!1 &1471979949
 GameObject:
   m_ObjectHideFlags: 0
