@@ -17,7 +17,8 @@ public class CatBot : MonoBehaviour
     public bool miceFound = false;
     public Transform ball;
     public GameObject bullet;
-    public bool ready = true;
+    public bool ready;
+    public bool gameReady;
     private bool boundrybreach;
     public GameObject obs;
 
@@ -42,18 +43,20 @@ public class CatBot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (closestMice == null)
-        {
-            FindMice();
-            thrust2();
-        }
+        if (gameReady) {
 
-        else if (!avoidObstacle())
-        {
-            rotation();
-            thrust2();
-        }
+            if (closestMice == null)
+            {
+                FindMice();
+                thrust2();
+            }
 
+            else if (!avoidObstacle())
+            {
+                rotation();
+                thrust2();
+            }
+        }
     }
 
     public bool avoidObstacle()

@@ -15,6 +15,7 @@ public class movement : MonoBehaviour
     private float speed;
     public float NormalSpeed = 200f;
     public float stamina = 10f;
+    public bool ready;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.GetComponent<health>().alive) {
+        if (gameObject.GetComponent<health>().alive && ready) {
             rotation();
             thrust();
             StaminaFill();
