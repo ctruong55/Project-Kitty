@@ -13,6 +13,7 @@ TagManager:
   - Cat
   - Coin
   - Key
+  - Event
   layers:
   - Default
   - TransparentFX
