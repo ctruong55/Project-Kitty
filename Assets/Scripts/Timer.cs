@@ -35,7 +35,9 @@ public class Timer : MonoBehaviour
     {
         if (player.GetComponent<health>().alive)
         {
-            timeLeft -= (Time.deltaTime);
+            if (player.GetComponent<movement>().ready) {
+                timeLeft -= (Time.deltaTime);
+            }
 
             if (volume.weight <= 1f)
             {
