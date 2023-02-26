@@ -37,12 +37,12 @@ public class movement : MonoBehaviour
     public void rotation() {
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
         {
-            transform.Rotate(0f, 0f, 4f);
+            transform.Rotate(0f, 0f, 5f);
         }
 
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
         {
-            transform.Rotate(0f, 0f, -4f);
+            transform.Rotate(0f, 0f, -5f);
         }
 
         else

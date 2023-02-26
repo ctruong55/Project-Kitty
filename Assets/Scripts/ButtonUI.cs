@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class ButtonUI : MonoBehaviour
 {
+
+    public GameObject options;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,24 +18,42 @@ public class ButtonUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
     }
 
     public void playMouse() {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Mouse");
     }
 
     public void playCat()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Cat");
     }
 
     public void Back() {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void Menu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Title");
+    }
+
+    public void Pause()
+    {
+        options.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void Resume() {
+        options.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
