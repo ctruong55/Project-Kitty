@@ -13,7 +13,7 @@ public class movement : MonoBehaviour
     public ParticleSystem dust;
     public Image staminaBarimg;
     private float speed;
-    public float NormalSpeed = 30f;
+    public float NormalSpeed = 15f;
     public float stamina = 10f;
 
     // Start is called before the first frame update

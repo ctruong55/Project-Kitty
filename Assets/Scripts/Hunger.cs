@@ -22,7 +22,7 @@ public class Hunger : MonoBehaviour
     {
         if (hunger <= 100f)
         {
-            hunger += (4 * Time.deltaTime);
+            hunger += (3 * Time.deltaTime);
         }
 
         if (hunger <= 10f)
@@ -46,7 +46,7 @@ public class Hunger : MonoBehaviour
         else
         {
             energy = false;
-            gameObject.GetComponent<health>().HP -= (0.075f * Time.deltaTime);
+            gameObject.GetComponent<health>().HP -= (0.05f * Time.deltaTime);
             gameObject.GetComponent<movement>().stamina -= (0.5f * Time.deltaTime);
         }
 
