@@ -20,6 +20,7 @@ public class Hunger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (hunger <= 100f)
         {
             hunger += (3 * Time.deltaTime);
@@ -55,6 +56,8 @@ public class Hunger : MonoBehaviour
 
     public void HungerFill()
     {
-        hungerBarimg.fillAmount = 1 - (hunger / 100);
+        if (gameObject.GetComponent<movement>().ready) {
+            hungerBarimg.fillAmount = 1 - (hunger / 100);
+        }
     }
 }

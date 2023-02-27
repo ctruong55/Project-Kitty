@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 
 public class MiceAI : MonoBehaviour
@@ -20,6 +22,7 @@ public class MiceAI : MonoBehaviour
     private bool runAway;
     private bool runTo;
     private bool boundrybreach;
+    public TMP_Text countdownDisplay;
 
 
     // Start is called before the first frame update
@@ -29,6 +32,7 @@ public class MiceAI : MonoBehaviour
         Cat = GameObject.FindGameObjectWithTag("Cat");
         Cheese = GameObject.Find("Cheese(Clone)");
         Center = GameObject.Find("Center");
+        countdownDisplay = GameObject.Find("CountDown").GetComponent<TMPro.TextMeshProUGUI>();
 
         speed = Random.Range(20f, 40f);
         size = 40f / speed;
@@ -50,11 +54,13 @@ public class MiceAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        thrust();
-        Flee();
-        Feed();
-        Breach();
-
+        if (countdownDisplay.text == "GO!") {
+            thrust();
+            Flee();
+            Feed();
+            Breach();
+        }
+        
         if (HP <= 0f)
         {
             Cat.GetComponent<CatBot>().mice.Remove(gameObject);

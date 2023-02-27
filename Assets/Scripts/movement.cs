@@ -7,7 +7,7 @@ public class movement : MonoBehaviour
 {
     public GameObject Manager;
     public GameObject Fireworks;
-    public float coins = 0;
+    public static float coins = 0;
     public float keys = 0;
     public Rigidbody2D rb2D;
     public ParticleSystem dust;
@@ -15,6 +15,7 @@ public class movement : MonoBehaviour
     private float speed;
     public float NormalSpeed = 15f;
     public float stamina = 10f;
+    public bool ready;
 
     // Start is called before the first frame update
     void Start()
@@ -26,21 +27,23 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotation();
-        thrust();
-        StaminaFill();
+        if (gameObject.GetComponent<health>().alive && ready) {
+            rotation();
+            thrust();
+            StaminaFill();
+        }
     }
 
 
     public void rotation() {
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
         {
-            transform.Rotate(0f, 0f, 4f);
+            transform.Rotate(0f, 0f, 5f);
         }
 
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
         {
-            transform.Rotate(0f, 0f, -4f);
+            transform.Rotate(0f, 0f, -5f);
         }
 
         else
@@ -54,7 +57,7 @@ public class movement : MonoBehaviour
         dust.Play();
         if (stamina > 0f && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
         {
-            speed = 200f;
+            speed = 400f;
             stamina -= (2 * Time.deltaTime);
         }
 

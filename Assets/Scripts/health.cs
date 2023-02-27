@@ -12,11 +12,13 @@ public class health : MonoBehaviour
     public GameObject End;
     public Image healthBarimg;
     public bool isHurt;
+    public bool alive;
     public float HP;
 
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
         End.SetActive(false);
         Manager = GameObject.Find("Spawner");
         HP = 1f;
@@ -30,7 +32,10 @@ public class health : MonoBehaviour
             GameObject clone2 = Instantiate(boom, transform.position, Quaternion.identity);
             Destroy(clone2.gameObject, 0.5f);
             clone2.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
-            //SceneManager.LoadScene("End");
+            alive = false;
+        }
+
+        if (!alive) {
             End.SetActive(true);
         }
 
