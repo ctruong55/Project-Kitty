@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4135103259664032498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4135103259664032499}
+  - component: {fileID: 4135103259664032508}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4135103259664032499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135103259664032498}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.672883, y: -1.1210475, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4135103259664032508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135103259664032498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff711c09bcfc49468f76d45e76dbf50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  botPrefab: {fileID: 47082965826713792, guid: d167ab3f08d28a54a87d69fe12f2ab53, type: 3}
+  cheesePrefab: {fileID: 3085996842830239023, guid: febeea2106b0e214baee4f519ff5810d, type: 3}
+  catPrefab: {fileID: 0}
+  coinPrefab: {fileID: 6052208450303652035, guid: 6d9b21c8ebbafd2428b4515f78c9912d, type: 3}
+  forestPrefabs:
+  - {fileID: 6761506487498852043, guid: a11677f30202bf7488f370fcc07dc4e1, type: 3}
+  - {fileID: 6761506487498852043, guid: b5a2dba2946c5c34ea339abde7b424df, type: 3}
+  - {fileID: 6761506487498852043, guid: 26a09766440b66c4fb41178a144b2994, type: 3}
+  - {fileID: 6761506487498852043, guid: c9cf31fca4414c842a1a490ba1b24bc9, type: 3}
+  - {fileID: 7448954853914481139, guid: a518915a257efd943a2e8c40f548a8ef, type: 3}
+  - {fileID: 5686124761230133778, guid: 5805e62a2d97c6649a12a8a4036acf10, type: 3}
+  - {fileID: 6761506487498852043, guid: 68c67620b59de5b429686f5021cf3491, type: 3}
+  - {fileID: 6761506487498852043, guid: aeeecbb068f4c4541af74fc93fb1034e, type: 3}
+  - {fileID: 6761506487498852043, guid: 55077b9f2f4a6954992e014ca4a4152f, type: 3}
+  - {fileID: 6761506487498852043, guid: de348b1dc34d44f4985c037fe3b5ce0f, type: 3}
+  - {fileID: 6761506487498852043, guid: e8786587406a8754baccb0e12380118c, type: 3}
+  - {fileID: 6761506487498852043, guid: b71bc6b811245d647b8246770f34ded0, type: 3}
+  - {fileID: 6761506487498852043, guid: 416bd00e8d8b92f489792674ec1877a8, type: 3}
+  - {fileID: 6761506487498852043, guid: 02b84c3fe93baef4bb2ba5661bf06654, type: 3}
+  numBots: 20
+  forestObstacles: 20
+  numCheese: 0
+  maxCheese: 5
+  numCoins: 0
+  maxCoins: 30
