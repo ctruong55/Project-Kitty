@@ -22,7 +22,6 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cam.orthographicSize = 30f;
         volume.weight = 0f;
         Lightrays.SetActive(true);
         Mist.SetActive(false);
@@ -33,6 +32,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cam = GameObject.Find("Player(Clone)").transform.GetChild(0).gameObject.GetComponent<Camera>();
         player = GameObject.Find("Player(Clone)");
         if (player.GetComponent<health>().alive)
         {
@@ -73,13 +73,6 @@ public class Timer : MonoBehaviour
             {
                 cam.orthographicSize -= ((timeLeft / (1.5f * tempTime)) * Time.deltaTime);
             }
-        }
-        else {
-            gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-40f, -579f);
-            volume.weight = 1f;
-            spotLight.intensity -= 0f;
-            Mist.SetActive(true);
-            Lightrays.SetActive(false);
         }
     }
 }

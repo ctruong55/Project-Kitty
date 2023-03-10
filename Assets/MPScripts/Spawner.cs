@@ -5,7 +5,6 @@ using Photon.Pun;
 
 public class Spawner : MonoBehaviourPunCallbacks
 {
-    public Camera cam;
     public GameObject mousePrefab;
     public GameObject botPrefab;
     public GameObject cheesePrefab;
@@ -24,8 +23,8 @@ public class Spawner : MonoBehaviourPunCallbacks
     void Start()
     {
         view = GetComponent<PhotonView>();
-        PhotonNetwork.Instantiate(cam.name, new Vector3(0f, 0f, -0.5f), Quaternion.identity);
-        PhotonNetwork.Instantiate(mousePrefab.name, transform.position, Quaternion.identity);
+        GameObject player = PhotonNetwork.Instantiate(mousePrefab.name, transform.position, Quaternion.identity);
+        player.GetComponentInChildren<Camera>().enabled = true;
         catPrefab = GameObject.FindGameObjectWithTag("Cat"); 
         numCheese = 0f;
         numCoins = 0f;
@@ -36,11 +35,8 @@ public class Spawner : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (view.IsMine) {
-            cam = GameObject.Find("Main Camera(Clone)").GetComponent<Camera>();
-            spawnCheese();
-            spawnCoins();
-        }
+        spawnCheese();
+        spawnCoins();
     }
 
 

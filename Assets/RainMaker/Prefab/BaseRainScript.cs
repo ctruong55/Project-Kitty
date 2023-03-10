@@ -223,7 +223,7 @@ namespace DigitalRuby.RainMaker
             }
 
 #endif
-
+            Camera = GameObject.Find("Player(Clone)").transform.GetChild(0).gameObject.GetComponent<Camera>();
             if (Camera == null)
             {
                 Camera = Camera.main;

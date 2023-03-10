@@ -22,20 +22,21 @@ public class health : MonoBehaviourPunCallbacks
     {
         End = GameObject.Find("Canvas").transform.GetChild(1).gameObject;
         Manager = GameObject.Find("Spawner");
-        cam = GameObject.Find("Main Camera(Clone)").GetComponent<Camera>();
         healthBarimg = GameObject.Find("Canvas").transform.GetChild(5).gameObject.GetComponent<Image>();
         alive = true;
         End.SetActive(false);
         HP = 1f;
         isHurt = false;
         view = GetComponent<PhotonView>();
+        if (!view.IsMine) {
+            cam.enabled = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         if (view.IsMine) {
-            cam = GameObject.Find("Main Camera(Clone)").GetComponent<Camera>();
             healthBarimg = GameObject.Find("Canvas").transform.GetChild(5).gameObject.GetComponent<Image>();
             if (HP <= 0f)
             {

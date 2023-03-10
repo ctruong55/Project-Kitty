@@ -24,7 +24,6 @@ public class followPlayer : MonoBehaviourPunCallbacks
 	void Update()
 	{
 		if (view.IsMine) {
-			target = GameObject.Find("Player(Clone)");
 			if (target)
 			{
 				Vector3 posNoZ = transform.position;

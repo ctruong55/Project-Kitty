@@ -4222,7 +4222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 259340741300644198, guid: a2468abd6473eb14ebd43e625accaed5, type: 3}
-  player: {fileID: 0}
+  player: {fileID: 771489069433686855, guid: 22a193b081455c0418faf11926dae934, type: 3}
   Mist: {fileID: 3561002504794381693}
   Lightrays: {fileID: 1379136687}
   spotLight: {fileID: 696219939}
@@ -7602,7 +7602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3561002504794399675
 GameObject:
   m_ObjectHideFlags: 0
@@ -21926,7 +21926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff711c09bcfc49468f76d45e76dbf50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 259340741300644198, guid: a2468abd6473eb14ebd43e625accaed5, type: 3}
   mousePrefab: {fileID: 771489069433686855, guid: 22a193b081455c0418faf11926dae934, type: 3}
   botPrefab: {fileID: 47082965826713792, guid: d167ab3f08d28a54a87d69fe12f2ab53, type: 3}
   cheesePrefab: {fileID: 3085996842830239023, guid: febeea2106b0e214baee4f519ff5810d, type: 3}

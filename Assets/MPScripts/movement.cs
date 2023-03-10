@@ -7,6 +7,7 @@ using Photon.Pun;
 public class movement : MonoBehaviourPunCallbacks
 {
     public GameObject Manager;
+    public Camera cam;
     public GameObject Fireworks;
     public static float coins = 0;
     public float keys = 0;
@@ -26,6 +27,7 @@ public class movement : MonoBehaviourPunCallbacks
         speed = NormalSpeed;
         view = GetComponent<PhotonView>();
         staminaBarimg = GameObject.Find("Canvas").transform.GetChild(7).gameObject.GetComponent<Image>();
+        cam.orthographicSize = 30f;
     }
 
     // Update is called once per frame
@@ -44,16 +46,21 @@ public class movement : MonoBehaviourPunCallbacks
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
         {
             transform.Rotate(0f, 0f, 5f);
+            cam.transform.Rotate(0f, 0f, -5f);
+            Debug.Log(gameObject.GetComponent<health>().alive && ready && view.IsMine);
         }
 
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
         {
             transform.Rotate(0f, 0f, -5f);
+            cam.transform.Rotate(0f, 0f, 5f);
         }
 
         else
         {
-            transform.Rotate(0f, 0f, Random.Range(-0.5f, 0.5f));
+            float rand = Random.Range(-0.5f, 0.5f);
+            transform.Rotate(0f, 0f, rand);
+            cam.transform.Rotate(0f, 0f, -rand);
         }
     }
 
