@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class health : MonoBehaviour
+public class health : MonoBehaviourPunCallbacks
 {
     public Camera cam;
     public GameObject Manager;
@@ -14,39 +15,51 @@ public class health : MonoBehaviour
     public bool isHurt;
     public bool alive;
     public float HP;
+    PhotonView view;
 
     // Start is called before the first frame update
     void Start()
     {
+        End = GameObject.Find("GameOver");
+        Manager = GameObject.Find("Spawner");
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        healthBarimg = GameObject.Find("Health indicator").GetComponent<Image>();
         alive = true;
         End.SetActive(false);
-        Manager = GameObject.Find("Spawner");
         HP = 1f;
         isHurt = false;
+        view = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (HP <= 0f) {
-            GameObject clone2 = Instantiate(boom, transform.position, Quaternion.identity);
-            Destroy(clone2.gameObject, 0.5f);
-            clone2.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
-            alive = false;
-        }
+        if (view.IsMine) {
+            if (HP <= 0f)
+            {
+                GameObject clone2 = Instantiate(boom, transform.position, Quaternion.identity);
+                Destroy(clone2.gameObject, 0.5f);
+                clone2.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
+                alive = false;
+            }
 
-        if (!alive) {
-            End.SetActive(true);
-        }
+            if (!alive)
+            {
+                End.SetActive(true);
+            }
 
-        if (HP <= 0.25f) {
-            healthBarimg.GetComponent<Image>().color = new Color(1f, 0f, 0f, 0.75f);
-        }
+            if (HP <= 0.25f)
+            {
+                healthBarimg.GetComponent<Image>().color = new Color(1f, 0f, 0f, 0.75f);
+            }
 
-        else {
-            healthBarimg.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.75f);
+            else
+            {
+                healthBarimg.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.75f);
+            }
+            HealthFill();
         }
-        HealthFill();
+        
     }
 
     void OnCollisionEnter2D(Collision2D col)

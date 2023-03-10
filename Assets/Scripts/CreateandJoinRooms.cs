@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
 
-public class CreateandJoinRooms : MonoBehaviour
+public class CreateandJoinRooms : MonoBehaviourPunCallbacks
 {
     public TMP_InputField createInput;
     public TMP_InputField joinInput;
@@ -32,7 +32,7 @@ public class CreateandJoinRooms : MonoBehaviour
         PhotonNetwork.JoinRoom(joinInput.text);
     }
 
-    public void OnJoinedRoom()
+    public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("Multiplayer");
     }

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class movement : MonoBehaviour
+public class movement : MonoBehaviourPunCallbacks
 {
     public GameObject Manager;
     public GameObject Fireworks;
@@ -16,18 +17,20 @@ public class movement : MonoBehaviour
     public float NormalSpeed = 15f;
     public float stamina = 10f;
     public bool ready;
+    PhotonView view;
 
     // Start is called before the first frame update
     void Start()
     {
         Manager = GameObject.Find("Spawner");
         speed = NormalSpeed;
+        view = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.GetComponent<health>().alive && ready) {
+        if (gameObject.GetComponent<health>().alive && ready && view.IsMine) {
             rotation();
             thrust();
             StaminaFill();

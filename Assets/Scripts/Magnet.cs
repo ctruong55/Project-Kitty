@@ -10,7 +10,7 @@ public class Magnet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
+        Player = GameObject.Find("Player(Clone)");
     }
 
     // Update is called once per frame

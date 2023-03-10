@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Spawner : MonoBehaviour
+public class Spawner : MonoBehaviourPunCallbacks
 {
+    public GameObject mousePrefab;
     public GameObject botPrefab;
     public GameObject cheesePrefab;
     public GameObject catPrefab;
@@ -19,6 +21,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PhotonNetwork.Instantiate(mousePrefab.name, transform.position, Quaternion.identity);
         catPrefab = GameObject.FindGameObjectWithTag("Cat"); 
         numCheese = 0f;
         numCoins = 0f;
