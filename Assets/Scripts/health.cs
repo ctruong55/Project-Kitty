@@ -20,10 +20,10 @@ public class health : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        End = GameObject.Find("GameOver");
+        End = GameObject.Find("Canvas").transform.GetChild(1).gameObject;
         Manager = GameObject.Find("Spawner");
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        healthBarimg = GameObject.Find("Health indicator").GetComponent<Image>();
+        healthBarimg = GameObject.Find("Canvas").transform.GetChild(5).gameObject.GetComponent<Image>();
         alive = true;
         End.SetActive(false);
         HP = 1f;
@@ -35,6 +35,7 @@ public class health : MonoBehaviourPunCallbacks
     void Update()
     {
         if (view.IsMine) {
+            cam = GameObject.Find("Main Camera").GetComponent<Camera>();
             if (HP <= 0f)
             {
                 GameObject clone2 = Instantiate(boom, transform.position, Quaternion.identity);

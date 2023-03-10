@@ -33,6 +33,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.Find("Player(Clone)");
         if (player.GetComponent<health>().alive)
         {
             if (player.GetComponent<movement>().ready) {

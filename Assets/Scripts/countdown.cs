@@ -12,11 +12,16 @@ public class countdown : MonoBehaviour
     public float countdownTime;
     public TMP_Text countdownDisplay;
 
+    void Awake()
+    {
+        player = GameObject.Find("Player(Clone)");
+    }
+
 
     // Start is called before the first frame update
-
     void Start()
     {
+        player = GameObject.Find("Player(Clone)");
         player.GetComponent<movement>().ready = false;
         cat.GetComponent<CatBot>().gameReady = false;
         StartCoroutine(CountdownStart());
@@ -25,7 +30,7 @@ public class countdown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        player = GameObject.Find("Player(Clone)");
     }
 
     IEnumerator CountdownStart() {

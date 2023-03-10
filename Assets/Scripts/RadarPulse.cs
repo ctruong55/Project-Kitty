@@ -18,6 +18,7 @@ public class RadarPulse : MonoBehaviour {
     private List<Collider2D> alreadyPingedColliderList;
 
     private void Awake() {
+        Player = GameObject.Find("Player(Clone)");
         pulseTransform = transform.Find("Pulse");
         pulseSpriteRenderer = pulseTransform.GetComponent<SpriteRenderer>();
         pulseColor = pulseSpriteRenderer.color;
@@ -28,6 +29,7 @@ public class RadarPulse : MonoBehaviour {
     }
 
     private void Update() {
+        Player = GameObject.Find("Player(Clone)");
         range += rangeSpeed * Time.deltaTime;
         if (range > rangeMax) {
             range = 0f;

@@ -13,12 +13,12 @@ public class Keys : MonoBehaviour
     void Start()
     {
         keytxt = GetComponent<TMP_Text>();
-        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.Find("Player(Clone)");
         keytxt.text = "×" + player.GetComponent<movement>().keys.ToString("0");
         if (!player.GetComponent<health>().alive)
         {
