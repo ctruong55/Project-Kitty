@@ -67,14 +67,13 @@ public class ButtonUI : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Mode()
+    public void Lobby()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Mode");
+        SceneManager.LoadScene("Lobby");
     }
 
-
-    public void Multiplayer()
+    public void Loading()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Loading");

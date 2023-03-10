@@ -443,7 +443,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 167987785}
         m_TargetAssemblyTypeName: ButtonUI, Assembly-CSharp
-        m_MethodName: Multiplayer
+        m_MethodName: Loading
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4708,7 +4708,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 167987785}
         m_TargetAssemblyTypeName: ButtonUI, Assembly-CSharp
-        m_MethodName: Multiplayer
+        m_MethodName: Lobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
