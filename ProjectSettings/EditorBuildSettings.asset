@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Multiplayer.unity
     guid: 42ff36cd5bd859b43824dce083c597c1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mouse.unity
     guid: 29553f76567ba3e43ab75ee899f02a3a
   - enabled: 1

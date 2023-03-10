@@ -23,8 +23,8 @@ public class followPlayer : MonoBehaviourPunCallbacks
 	// Update is called once per frame
 	void Update()
 	{
-		target = GameObject.Find("Player(Clone)");
 		if (view.IsMine) {
+			target = GameObject.Find("Player(Clone)");
 			if (target)
 			{
 				Vector3 posNoZ = transform.position;
