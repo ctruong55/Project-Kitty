@@ -71,6 +71,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickLeaveRoom() {
         PhotonNetwork.LeaveRoom();
+        //PhotonNetwork.LoadLevel("Lobby");
     }
 
     public override void OnLeftRoom() {

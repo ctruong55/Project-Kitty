@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class CreateandJoinRooms : MonoBehaviourPunCallbacks
 {
-    public TMP_InputField createInput;
-    public TMP_InputField joinInput;
 
     // Start is called before the first frame update
     void Start()
@@ -22,19 +21,16 @@ public class CreateandJoinRooms : MonoBehaviourPunCallbacks
         
     }
 
-    public void CreateRoom() 
+    public void OnClickLeaveRoom()
     {
-        PhotonNetwork.CreateRoom(createInput.text);
+        PhotonNetwork.LeaveRoom();
+        
     }
 
-    public void JoinRoom()
+    public override void OnLeftRoom()
     {
-        PhotonNetwork.JoinRoom(joinInput.text);
-    }
-
-    public override void OnJoinedRoom()
-    {
-        PhotonNetwork.LoadLevel("Multiplayer");
+        PhotonNetwork.LoadLevel("Loading");
+        base.OnLeftRoom();
     }
 
 }
