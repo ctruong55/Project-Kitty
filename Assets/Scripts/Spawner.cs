@@ -5,6 +5,7 @@ using Photon.Pun;
 
 public class Spawner : MonoBehaviourPunCallbacks
 {
+    public Camera cam;
     public GameObject mousePrefab;
     public GameObject botPrefab;
     public GameObject cheesePrefab;
@@ -21,6 +22,7 @@ public class Spawner : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        PhotonNetwork.Instantiate(cam.name, new Vector3(0f, 0f, -0.5f), Quaternion.identity);
         PhotonNetwork.Instantiate(mousePrefab.name, transform.position, Quaternion.identity);
         catPrefab = GameObject.FindGameObjectWithTag("Cat"); 
         numCheese = 0f;
