@@ -12,12 +12,13 @@ public class ButtonUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player(Clone)");
     }
 
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.Find("Player(Clone)");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
@@ -64,5 +65,18 @@ public class ButtonUI : MonoBehaviour
     public void Resume() {
         options.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void Mode()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Mode");
+    }
+
+
+    public void Multiplayer()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Loading");
     }
 }

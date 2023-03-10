@@ -22,7 +22,7 @@ public class countdown : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player(Clone)");
-        player.GetComponent<movement>().ready = false;
+        //player.GetComponent<movement>().ready = false;
         cat.GetComponent<CatBot>().gameReady = false;
         StartCoroutine(CountdownStart());
     }

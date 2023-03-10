@@ -36,6 +36,7 @@ public class health : MonoBehaviourPunCallbacks
     {
         if (view.IsMine) {
             cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+            healthBarimg = GameObject.Find("Canvas").transform.GetChild(5).gameObject.GetComponent<Image>();
             if (HP <= 0f)
             {
                 GameObject clone2 = Instantiate(boom, transform.position, Quaternion.identity);

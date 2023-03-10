@@ -18,12 +18,14 @@ public class Hunger : MonoBehaviourPunCallbacks
         energy = true;
         hunger = 0f;
         view = GetComponent<PhotonView>();
+        hungerBarimg = GameObject.Find("Canvas").transform.GetChild(6).gameObject.GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (view.IsMine) {
+            hungerBarimg = GameObject.Find("Canvas").transform.GetChild(6).gameObject.GetComponent<Image>();
             if (hunger <= 100f)
             {
                 hunger += (3 * Time.deltaTime);

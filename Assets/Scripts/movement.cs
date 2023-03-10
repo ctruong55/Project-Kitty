@@ -25,12 +25,14 @@ public class movement : MonoBehaviourPunCallbacks
         Manager = GameObject.Find("Spawner");
         speed = NormalSpeed;
         view = GetComponent<PhotonView>();
+        staminaBarimg = GameObject.Find("Canvas").transform.GetChild(7).gameObject.GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (gameObject.GetComponent<health>().alive && ready && view.IsMine) {
+            staminaBarimg = GameObject.Find("Canvas").transform.GetChild(7).gameObject.GetComponent<Image>();
             rotation();
             thrust();
             StaminaFill();
