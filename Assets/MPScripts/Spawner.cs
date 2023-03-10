@@ -18,10 +18,12 @@ public class Spawner : MonoBehaviourPunCallbacks
     public float maxCheese = 5f;
     public float numCoins;
     public float maxCoins = 10f;
+    PhotonView view;
 
     // Start is called before the first frame update
     void Start()
     {
+        view = GetComponent<PhotonView>();
         PhotonNetwork.Instantiate(cam.name, new Vector3(0f, 0f, -0.5f), Quaternion.identity);
         PhotonNetwork.Instantiate(mousePrefab.name, transform.position, Quaternion.identity);
         catPrefab = GameObject.FindGameObjectWithTag("Cat"); 
@@ -34,8 +36,11 @@ public class Spawner : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        spawnCheese();
-        spawnCoins();
+        if (view.IsMine) {
+            cam = GameObject.Find("Main Camera(Clone)").GetComponent<Camera>();
+            spawnCheese();
+            spawnCoins();
+        }
     }
 
 
