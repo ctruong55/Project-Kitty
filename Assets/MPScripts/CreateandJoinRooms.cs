@@ -24,13 +24,8 @@ public class CreateandJoinRooms : MonoBehaviourPunCallbacks
     public void OnClickLeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
-        
-    }
+        PhotonNetwork.LoadLevel("title");
 
-    public override void OnLeftRoom()
-    {
-        PhotonNetwork.LoadLevel("Loading");
-        base.OnLeftRoom();
     }
 
 }
