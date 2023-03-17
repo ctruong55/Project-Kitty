@@ -23,6 +23,7 @@ public class movement : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false; 
         Manager = GameObject.Find("Spawner");
         speed = NormalSpeed;
         view = GetComponent<PhotonView>();
@@ -43,37 +44,20 @@ public class movement : MonoBehaviourPunCallbacks
 
 
     public void rotation() {
-        if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
-        {
-            transform.Rotate(0f, 0f, 5f);
-            cam.transform.Rotate(0f, 0f, -5f);
-            Debug.Log(gameObject.GetComponent<health>().alive && ready && view.IsMine);
-        }
-
-        if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
-        {
-            transform.Rotate(0f, 0f, -5f);
-            cam.transform.Rotate(0f, 0f, 5f);
-        }
-
-        else
-        {
-            float rand = Random.Range(-0.5f, 0.5f);
-            transform.Rotate(0f, 0f, rand);
-            cam.transform.Rotate(0f, 0f, -rand);
-        }
+        Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.rotation = Quaternion.LookRotation(new Vector3(0,0,5), mousePos - transform.position);
     }
 
     public void thrust() {
         rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
         dust.Play();
-        if (stamina > 0f && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
+        if (stamina > 0f && ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.UpArrow))))
         {
             speed = 400f;
             stamina -= (2 * Time.deltaTime);
         }
 
-        else if (stamina < 10f && !((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
+        else if (stamina < 10f && !((Input.GetMouseButton(0) || Input.GetKey(KeyCode.UpArrow))))
         {
             StartCoroutine("Regen", 3f);
         }

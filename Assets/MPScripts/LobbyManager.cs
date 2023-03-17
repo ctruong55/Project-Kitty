@@ -17,12 +17,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Transform contentObject;
     public float timeBetween = 1.5f;
     float updateTime;
-    public bool ready;
 
     // Start is called before the first frame update
     void Start()
     {
-        ready = false;
         PhotonNetwork.JoinLobby();
     }
 
@@ -35,7 +33,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void OnClickCreate() {
         if (createInput.text.Length >= 1)
         {
-            PhotonNetwork.CreateRoom(createInput.text, new RoomOptions() { MaxPlayers = 3 });
+            PhotonNetwork.CreateRoom(createInput.text, new RoomOptions() { MaxPlayers = 10 });
         }
     }
 
@@ -44,9 +42,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         lobby.SetActive(false);
         room.SetActive(true);
         roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
-        if (ready) {
-            play();
-        }
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList) {
@@ -75,7 +70,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickLeaveRoom() {
         PhotonNetwork.LeaveRoom();
-        //PhotonNetwork.LoadLevel("Lobby");
     }
 
     public override void OnLeftRoom() {
@@ -89,7 +83,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
 
     public void play() {
-        ready = true;
         PhotonNetwork.LoadLevel("Multiplayer");
     }
 }

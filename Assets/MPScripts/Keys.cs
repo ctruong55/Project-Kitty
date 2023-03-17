@@ -24,5 +24,9 @@ public class Keys : MonoBehaviour
         {
             gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-780f, -579f);
         }
+        else
+        {
+            gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-80f, -275f);
+        }
     }
 }

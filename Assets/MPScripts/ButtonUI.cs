@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class ButtonUI : MonoBehaviour
+public class ButtonUI : MonoBehaviourPunCallbacks
 {
+    public GameObject timer;
     public GameObject player;
     public GameObject options;
 
@@ -55,7 +58,7 @@ public class ButtonUI : MonoBehaviour
 
     public void Pause()
     {
-        if (player.GetComponent<health>().alive)
+        if (player.GetComponent<health>().alive && timer.GetComponent<countdown>().countdownTime == 0)
         {
             options.SetActive(true);
             Time.timeScale = 0f;
@@ -77,5 +80,17 @@ public class ButtonUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Loading");
+    }
+
+    public void DisconnectPlayer() {
+        StartCoroutine(DisconnectAndLoad());
+    }
+
+    IEnumerator DisconnectAndLoad() {
+        PhotonNetwork.LeaveRoom();
+        while (PhotonNetwork.InRoom) {
+            yield return null;
+        }
+        PhotonNetwork.LoadLevel("Title");
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class CreateandJoinRooms : MonoBehaviourPunCallbacks
 {
@@ -24,7 +25,7 @@ public class CreateandJoinRooms : MonoBehaviourPunCallbacks
     public void OnClickLeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
-        PhotonNetwork.LoadLevel("title");
+        SceneManager.LoadScene("Lobby");
 
     }
 
